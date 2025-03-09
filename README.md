@@ -59,9 +59,9 @@ dataset/
     ├── image2.jpg │
     └── imageN.jpg │
   └── Montgomery_County/
-    ├── image1.jpg
-    ├── image2.jpg
-    └── imageN.jpg
+    ├── image1.jpg |
+    ├── image2.jpg |
+    └── imageN.jpg |
 ```
 
 ---
