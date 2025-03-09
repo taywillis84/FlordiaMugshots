@@ -78,3 +78,6 @@ Currently, there is no handling for mugshots that do not originate from any of t
 
 ---
 
+## Potential Issues
+
+I have no idea if the resultion of the image plays a part here - the script will convert all images to a standard size before training the model, but I have yet to determine if that has a strong impact on model training. Does the model know a mugshot is Orange County simply because of the resolution artifacts or is it picking up on other things?
