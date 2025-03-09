@@ -42,7 +42,7 @@ The images do not have to be in `.jpg` format and can be named however the websi
 
 ```
 dataset/
-│ ├── Orange_County/ 
+  ├── Orange_County/ 
     ├── image1.jpg │
     ├── image2.jpg │
     └── imageN.jpg │
