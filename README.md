@@ -78,4 +78,3 @@ Currently, there is no handling for mugshots that do not originate from any of t
 
 ---
 
-Feel free to contribute and improve upon this project!
