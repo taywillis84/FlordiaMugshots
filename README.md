@@ -41,7 +41,27 @@ This script builds a machine learning model based on the downloaded dataset. The
 The images do not have to be in `.jpg` format and can be named however the website provides. Just make sure to organize them accordingly.
 
 ```
-dataset/ │ ├── Orange_County/ │ ├── image1.jpg │ ├── image2.jpg │ └── imageN.jpg │ ├── Dothan_County/ │ ├── image1.jpg │ ├── image2.jpg │ └── imageN.jpg │ ├── Jefferson_County/ │ ├── image1.jpg │ ├── image2.jpg │ └── imageN.jpg │ ├── Midlands_County/ │ ├── image1.jpg │ ├── image2.jpg │ └── imageN.jpg │ └── Montgomery_County/ ├── image1.jpg ├── image2.jpg └── imageN.jpg
+dataset/
+│ ├── Orange_County/ 
+    ├── image1.jpg │
+    ├── image2.jpg │
+    └── imageN.jpg │
+  ├── Dothan_County/ 
+    ├── image1.jpg │
+    ├── image2.jpg │
+    └── imageN.jpg │
+  ├── Jefferson_County/ 
+    ├── image1.jpg │
+    ├── image2.jpg │
+    └── imageN.jpg │
+  ├── Midlands_County/ 
+    ├── image1.jpg │
+    ├── image2.jpg │
+    └── imageN.jpg │
+  └── Montgomery_County/
+    ├── image1.jpg
+    ├── image2.jpg
+    └── imageN.jpg
 ```
 
 ---
