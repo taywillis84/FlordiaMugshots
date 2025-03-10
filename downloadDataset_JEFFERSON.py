@@ -5,15 +5,17 @@ from urllib.parse import urljoin
 from PIL import Image
 from io import BytesIO
 
-# Base URL of the website, we will append the page numbers
+# Base URL for listing pages
 base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Page='
 
+# Base URL for downloading inmate photos
+photo_base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000/Inmate/Photo/'
+
 # Folder to save the images
-save_folder = 'JeffersonCounty'
+save_folder = 'trainingData/JeffersonCounty'
 
 # Create folder if it doesn't exist
-if not os.path.exists(save_folder):
-    os.makedirs(save_folder)
+os.makedirs(save_folder, exist_ok=True)
 
 # Initialize a counter for downloaded files
 total_files_downloaded = 0
@@ -30,28 +32,30 @@ for page_num in range(1, 30):
     # Find all image tags in the HTML
     img_tags = soup.find_all('img')
 
-    # Extract the URLs of the images
-    img_urls = [urljoin(url, img['src']) for img in img_tags if img.get('src')]
+    # Extract the image numbers from URLs
+    for img_tag in img_tags:
+        img_src = img_tag.get('src')
+        if img_src and 'Inmate/Photo/' in img_src:
+            try:
+                # Extract image number
+                img_number = img_src.split('/')[-1].split('?')[0]
 
-    # Download each image from the current page
-    for img_url in img_urls:
-        try:
-            # Get the image content
-            img_data = requests.get(img_url).content
-            # Open the image using PIL
-            img = Image.open(BytesIO(img_data))
+                # Construct the correct download URL
+                img_url = f"{photo_base_url}{img_number}?type=Full"
 
-            # Extract the image name and replace the extension with '.png'
-            img_name = os.path.join(save_folder, os.path.basename(img_url.split('?')[0]).split('.')[
-                0] + '.png')  # Remove query params and change to .png
+                # Download image
+                img_data = requests.get(img_url).content
+                img = Image.open(BytesIO(img_data))
 
-            # Save the image as PNG
-            img.save(img_name, 'PNG')
-            print(f"Downloaded {img_name}")
-            # Increment the counter for each successfully downloaded image
-            total_files_downloaded += 1
-        except Exception as e:
-            print(f"Failed to download {img_url}: {e}")
+                # Save the image as PNG
+                img_name = os.path.join(save_folder, f"{img_number}.png")
+                img.save(img_name, 'PNG')
+
+                print(f"Downloaded {img_name}")
+                total_files_downloaded += 1
+
+            except Exception as e:
+                print(f"Failed to download {img_url}: {e}")
 
 # Report the total number of files downloaded
 print(f"Total files downloaded: {total_files_downloaded}")
