@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="753a11ee-8757-4f46-a622-72e3d0c124c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/FlordiaMugshots.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/pymupdf.exe" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stegImage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/downloadDataset_DOTHAN.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_DOTHAN.py" afterDir="false" />
@@ -12,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/downloadDataset_Midland.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_Midland.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/getNewMugshots_Orange.py" beforeDir="false" afterPath="$PROJECT_DIR$/getNewMugshots_Orange.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/testModel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

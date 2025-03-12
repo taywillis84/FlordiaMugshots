@@ -13,7 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 # Constants
 PDF_URL = "https://netapps.ocfl.net/BestJail/PDF/bookings.pdf"
 LOCAL_PDF_PATH = "new-bookings.pdf"
-FOLDER_PATH = "OrangeCounty"
+FOLDER_PATH = "newPhotosTest"
 
 # Function to check timestamps
 def get_online_pdf_timestamp(url):
