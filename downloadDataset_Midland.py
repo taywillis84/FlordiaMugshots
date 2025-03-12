@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 
 # Base URL to scrape for Midlands Mugshots links
 SOURCE_URL = "https://www.abccolumbia.com/news/mugshots/"  # Change this to the actual source
-SAVE_FOLDER = "Midlands"
+SAVE_FOLDER = "trainingData/Midlands"
 
 # Ensure the save folder exists
 os.makedirs(SAVE_FOLDER, exist_ok=True)

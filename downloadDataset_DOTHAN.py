@@ -7,7 +7,7 @@ from urllib.parse import urljoin
 url = 'https://www.dothanpd.org/news/mugshots/'
 
 # Folder to save the images
-save_folder = 'DOTHAN'
+save_folder = 'trainingData/DOTHAN'
 
 # Create folder if it doesn't exist
 if not os.path.exists(save_folder):

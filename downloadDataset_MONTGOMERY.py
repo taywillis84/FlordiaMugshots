@@ -66,7 +66,7 @@ def download_images_from_page(page_url, download_folder):
 # Main code to run the functions
 if __name__ == "__main__":
     base_url = 'https://www.waka.com/mugshots/'  # Replace with the base URL where you found the "MONTGOMERY COUNTY MUGSHOTS" links
-    download_folder = 'MONGOMERY'  # Folder to save the images
+    download_folder = 'trainingData/MONGOMERY'  # Folder to save the images
 
     # Extract Montgomery County Mugshots links
     mugshot_links = extract_montgomery_mugshot_links(base_url)

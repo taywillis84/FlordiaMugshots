@@ -35,7 +35,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 print("Browser launched!")
 
 # Create a folder to store images
-folder_path = "OrangeCounty"
+folder_path = "newOrange"
 os.makedirs(folder_path, exist_ok=True)
 print(f"Folder '{folder_path}' ready.")
 
