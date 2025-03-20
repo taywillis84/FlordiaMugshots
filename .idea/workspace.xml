@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="753a11ee-8757-4f46-a622-72e3d0c124c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/folderDiff.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-bookings.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_ALCUBILLA_RICHARD_RAMON.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_ALVARADO_CHRISTINE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_ALVARDORICKETT_ANNER_ORLANDO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BERKEY_STEVEN_DOUGLAS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BERNARD_LUKE_JULIAN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BROWN_JARROD_STEVEN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BROWN_MARQUENTIS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_CHEN_BO_N.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_CINAMELLA_DOMINICK_ANTHONY.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_DAVIS_ELTON_JEROME.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_DELAWDER_ASHLEY_NICOLE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_DEMARIA_NICOLA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_FLEURIMAN_TRAVON_MARLLO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_FRENK_TIFFANY_SHURIE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_GENTILUS_STEPHANIE_DIMITRI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_GUANTI_ANGELA_ESTHER.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadDataset_JEFFERSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_JEFFERSON.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadDataset_Midland.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_Midland.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadRecent_OrangeCounty.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadRecent_OrangeCounty.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/testModel.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;taywillis84&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/taywillis84/FlordiaMugshots.git&quot;,
+    &quot;accountId&quot;: &quot;d34bae4e-2e52-4c49-a4c5-7c0f8ee124f2&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2u1ShiF0Bx7v3RK2AwRW9TfK1FD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Python tests.pytest in testGROKModel.py.executor": "Run",
+    "Python tests.pytest in testModel.py.executor": "Run",
+    "Python.MIDLANDS2.executor": "Run",
+    "Python.checkCorruption.executor": "Run",
+    "Python.checkForNewBookings.executor": "Run",
+    "Python.checkTans.executor": "Run",
+    "Python.createModel.executor": "Run",
+    "Python.createTestDataset.executor": "Run",
+    "Python.downloadDataset_DOTHAN.executor": "Run",
+    "Python.downloadDataset_JEFFERSON.executor": "Run",
+    "Python.downloadDataset_MONTGOMERY.executor": "Run",
+    "Python.downloadDataset_Midland.executor": "Run",
+    "Python.downloadRecent_OrangeCounty.executor": "Run",
+    "Python.findBrightFiles.executor": "Run",
+    "Python.folderDiff.executor": "Run",
+    "Python.getNewMugshots_Orange.executor": "Run",
+    "Python.grokModel.executor": "Run",
+    "Python.modelMetrics.executor": "Run",
+    "Python.stegImage.executor": "Run",
+    "Python.testModel.executor": "Run",
+    "Python.vizualizeGROKModel.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "WorkingModel",
+    "last_opened_file_path": "C:/Users/willi/PycharmProjects/PythonProject",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-14705d77f0bb-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="753a11ee-8757-4f46-a622-72e3d0c124c5" name="Changes" comment="" />
+      <created>1741414707664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741414707664</updated>
+    </task>
+    <servers />
+  </component>
+</project>

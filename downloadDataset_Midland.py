@@ -2,10 +2,13 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import time
+from datetime import datetime
 
 # Base URL to scrape for Midlands Mugshots links
-SOURCE_URL = "https://www.abccolumbia.com/news/mugshots/"  # Change this to the actual source
-SAVE_FOLDER = "Midlands"
+date_str = datetime.now().strftime("%Y-%m-%d")
+SOURCE_URL = "https://www.abccolumbia.com/news/mugshots/page/"  # Change this to the actual source
+SAVE_FOLDER = f"trainingData/MIDLANDS/{date_str}"
 
 # Ensure the save folder exists
 os.makedirs(SAVE_FOLDER, exist_ok=True)
@@ -49,7 +52,7 @@ def download_jpgs_from_url(page_url):
 
 def download_image(img_url):
     """Download an image and save it to the folder."""
-    img_name = os.path.join(SAVE_FOLDER, os.path.basename(img_url))
+    img_name = os.path.join(SAVE_FOLDER, f"MIDLANDS_{os.path.basename(img_url)}")  # Prepend "Midlands_"
 
     try:
         img_data = requests.get(img_url).content
