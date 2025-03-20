@@ -1,63 +1,102 @@
+import pytest
+import tensorflow as tf
 import os
 import numpy as np
-import cv2
-from tensorflow.keras.models import load_model
+import matplotlib.pyplot as plt
+from tensorflow.keras.preprocessing import image
 
+folder = "ENTER FILEPATH"
 
-# Step 1: Preprocess Image
-def preprocess_image(image_path, target_size=(224, 224)):
-    img = cv2.imread(image_path)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # Convert from BGR to RGB
-    img_resized = cv2.resize(img, target_size)
-    return img_resized
+# Define the fixture to load the model
+@pytest.fixture
+def model():
+    # Load your trained model
+    model = tf.keras.models.load_model('mugshot_classifier.h5')
+    return model
 
+# Function to generate saliency map
+def generate_saliency_map(model, img_array, class_index):
+    """
+    Generate a saliency map for the given image and class index.
+    """
+    img_array = tf.convert_to_tensor(img_array, dtype=tf.float32)
+    img_array = tf.Variable(img_array)  # Make the image a trainable variable for gradient computation
 
-# Step 2: Load the Model
-def load_trained_model(model_path):
-    return load_model(model_path)
+    with tf.GradientTape() as tape:
+        tape.watch(img_array)
+        predictions = model(img_array)  # Get the model's predictions
+        loss = predictions[0][class_index]  # Get the class score for the predicted class
 
+    # Compute the gradient of the loss with respect to the image
+    grads = tape.gradient(loss, img_array)
 
-# Step 3: Generate Class Labels from Folder Names
-def generate_class_labels_from_folders(folder_path):
-    return {i: folder for i, folder in enumerate(os.listdir(folder_path)) if os.path.isdir(os.path.join(folder_path, folder))}
+    # Take the absolute value of the gradients
+    saliency = tf.reduce_max(tf.abs(grads), axis=-1)  # We only care about the highest gradients
 
+    # Normalize the saliency map between 0 and 1
+    saliency = saliency / tf.reduce_max(saliency)
 
-# Step 4: Make Prediction on New Image
-def predict_county(model, image_path, target_size=(224, 224), class_labels=None, confidence_threshold=0.70):
-    img = preprocess_image(image_path, target_size)
-    img = np.expand_dims(img, axis=0)  # Add batch dimension
-    img = img / 255.0  # Normalize the image
+    return saliency.numpy()
 
-    prediction = model.predict(img, verbose=0)
-    predicted_class = np.argmax(prediction, axis=1)
-    confidence = np.max(prediction)
+# Test function to test the model on a folder of images and show the saliency map
+def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
+    # Class names based on the model's output (update this to your actual class names)
+    class_names = ['Jefferson', 'Midlands', 'Orange']
+    mismatches = []  # List to store mismatches
 
-    if confidence < confidence_threshold:
-        return "No confident predictions", confidence
+    # Loop through all images in the folder and predict
+    for img_name in os.listdir(folder_path):
+        img_path = os.path.join(folder_path, img_name)
 
-    predicted_county = class_labels[predicted_class[0]] if class_labels else predicted_class[0]
-    return predicted_county, confidence
+        # Load and preprocess the image
+        img = image.load_img(img_path, target_size=img_size)
+        img_array = image.img_to_array(img)
+        img_array = np.expand_dims(img_array, axis=0) / 255.0  # Normalize
 
+        # Make prediction
+        prediction = model.predict(img_array)
+        predicted_class_index = np.argmax(prediction, axis=1)[0]  # Get the index of the class with the highest probability
+        confidence = prediction[0][predicted_class_index]  # Get the confidence for the predicted class
 
-# Step 5: Process All Images in a Folder
-def predict_images_in_folder(model, folder_path, target_size=(224, 224), class_labels=None, confidence_threshold=0.70):
-    image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('jpg', 'jpeg', 'png'))]
+        # Get the class name
+        predicted_class_name = class_names[predicted_class_index]
 
-    for image_file in image_files:
-        image_path = os.path.join(folder_path, image_file)
-        predicted_county, confidence = predict_county(model, image_path, target_size, class_labels, confidence_threshold)
+        # Check if the filename contains the predicted county
+        if not any(county.lower() in img_name.lower() for county in class_names if county == predicted_class_name):
+            mismatches.append(f"{img_name} | Predicted: {predicted_class_name}")
 
-        print(f"Image: {image_file} -> Predicted County: {predicted_county} (Confidence: {confidence * 100:.2f}%)")
+        # Generate the saliency map for the predicted class
+        saliency_map = generate_saliency_map(model, img_array, predicted_class_index)
 
+        # Display the original image and its saliency map
+        plt.figure(figsize=(10, 5))
 
-# Step 6: Main Function to Run the Script
+        # Plot original image
+        plt.subplot(1, 2, 1)
+        plt.imshow(img)
+        plt.title(f"Original Image: {img_name}")
+        plt.axis('off')
+
+        # Plot saliency map
+        plt.subplot(1, 2, 2)
+        plt.imshow(saliency_map[0], cmap='jet')
+        plt.title(f"Saliency Map\nPredicted: {predicted_class_name} ({confidence * 100:.2f}%)")
+        plt.axis('off')
+
+        plt.show()
+
+        # Print the result
+        print(f"Image: {img_name} | Predicted Class: {predicted_class_name} | Confidence: {confidence * 100:.2f}%")
+
+    # Output mismatches at the end
+    if mismatches:
+        print("\nMISMATCHED FILES:")
+        for mismatch in mismatches:
+            print(mismatch)
+    else:
+        print("\nNo mismatches found.")
+
 if __name__ == "__main__":
-    model_path = 'mugshot_model.h5'
-    test_folder_path = 'newPhotosTest'  # Modify with your actual folder path
-
-    os.makedirs(test_folder_path, exist_ok=True)
-
-    model = load_trained_model(model_path)
-    class_labels = generate_class_labels_from_folders('trainingData')  # Modify with your training data folder
-
-    predict_images_in_folder(model, test_folder_path, class_labels=class_labels)
+    # Run the test
+    model = model()  # Load the model
+    test_model_on_folder(model, folder_path=folder)  # Test the model on images in the folder

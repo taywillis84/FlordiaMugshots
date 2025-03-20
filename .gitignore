@@ -169,11 +169,9 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-#IMAGES
-Backups/
-newPhotosTest/
-trainingData/
-testImage/
+#Images
+*.png
+*.jpg
 
-# Models
+#AI Models
 *.h5

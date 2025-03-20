@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="753a11ee-8757-4f46-a622-72e3d0c124c5" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/FlordiaMugshots.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -18,6 +19,12 @@
       <change beforePath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/getNewMugshots_Orange.py" beforeDir="false" afterPath="$PROJECT_DIR$/getNewMugshots_Orange.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/testModel.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadDataset_JEFFERSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_JEFFERSON.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadDataset_Midland.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_Midland.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" afterDir="false" />
+>>>>>>> WorkingModel
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +65,39 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+<<<<<<< HEAD
     "Python.getNewMugshots_Orange.executor": "Run",
     "Python.stegImage.executor": "Run",
     "Python.testModel.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/willi/PycharmProjects/PythonProject/FlordiaMugshots",
+=======
+    "Python tests.pytest in testGROKModel.py.executor": "Run",
+    "Python tests.pytest in testModel.py.executor": "Run",
+    "Python.MIDLANDS2.executor": "Run",
+    "Python.checkCorruption.executor": "Run",
+    "Python.checkForNewBookings.executor": "Run",
+    "Python.checkTans.executor": "Run",
+    "Python.createModel.executor": "Run",
+    "Python.createTestDataset.executor": "Run",
+    "Python.downloadDataset_DOTHAN.executor": "Run",
+    "Python.downloadDataset_JEFFERSON.executor": "Run",
+    "Python.downloadDataset_MONTGOMERY.executor": "Run",
+    "Python.downloadDataset_Midland.executor": "Run",
+    "Python.downloadRecent_OrangeCounty.executor": "Run",
+    "Python.findBrightFiles.executor": "Run",
+    "Python.folderDiff.executor": "Run",
+    "Python.getNewMugshots_Orange.executor": "Run",
+    "Python.grokModel.executor": "Run",
+    "Python.modelMetrics.executor": "Run",
+    "Python.stegImage.executor": "Run",
+    "Python.testModel.executor": "Run",
+    "Python.vizualizeGROKModel.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "WorkingModel",
+    "last_opened_file_path": "C:/Users/willi/PycharmProjects/PythonProject",
+>>>>>>> WorkingModel
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>

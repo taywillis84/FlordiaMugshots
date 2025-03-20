@@ -16,7 +16,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 print("Browser launched!")
 
 # Create the "OrangeCounty" folder if it doesn't exist
-folder_path = "trainingData/OrangeCounty"
+folder_path = "trainingData/Orange"
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
     print(f"Folder '{folder_path}' created.")
