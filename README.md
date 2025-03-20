@@ -56,16 +56,16 @@ trainingData/
 
 ## testModel
 
-Using the model that was created in the `buildModel.py` script, this function categorizes a new directory of images based on the learned dataset and displays it with a Saliency map for each image. I persoanlly recommend moving photos that the AI has not been trained on and testing them during this phase, specifically new mugshots that have been taken after the model has been deployed.
+Using the model that was created in the `buildModel.py` script, this function categorizes a new directory of images based on the learned dataset and displays it with a Saliency map for each image. I personally recommend moving photos that the AI has not been trained on and testing them during this phase, specifically new mugshots that have been taken after the model has been deployed.
 
 ---
 
 ## Things to Work On
 
-Currently, there is no handling for mugshots that do not originate from any of the supported counties. While it hasn't been a significant issue in my experiments, mugshots from counties outside the six listed may return high confidence values as being related to a county, even if they are not correct. Further improvements in handling non-county images are needed.
+Currently, there is no handling for mugshots that do not originate from any of the supported counties. While it hasn't been a significant issue in my experiments, mugshots from counties outside the six listed may return high confidence values as being related to a county, even if they are not correct. Further improvements in handling non-county images are needed. 
 
 ---
 
 ## Potential Issues
 
-I have no idea if the resultion of the image plays a part here - the script will convert all images to a standard size before training the model, but I have yet to determine if that has a strong impact on model training. Does the model know a mugshot is Orange County simply because of the resolution artifacts or is it picking up on other things?
+I have no idea if the resultion of the image plays a part here - the script will convert all images to a standard size before training the model, but I have yet to determine if that has a strong impact on model training. Does the model know a mugshot is Orange County simply because of the resolution artifacts or is it picking up on other things? I am also curious if the model is picking up on specific things like Orange County having more "Flordia Man" type people - saliency maps don't show that but could be an issue at scale.
