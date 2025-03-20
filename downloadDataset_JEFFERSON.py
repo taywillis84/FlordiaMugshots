@@ -15,7 +15,7 @@ base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Page='
 photo_base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000/Inmate/Photo/'
 
 # Folder to save the images
-save_folder = f'trainingData/JEFFERSON/{date_str}'
+save_folder = f'trainingData/JEFFERSON'
 os.makedirs(save_folder, exist_ok=True)
 
 # Log file to track downloaded images

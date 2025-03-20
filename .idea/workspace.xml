@@ -5,30 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="753a11ee-8757-4f46-a622-72e3d0c124c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/folderDiff.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-bookings.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_ALCUBILLA_RICHARD_RAMON.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_ALVARADO_CHRISTINE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_ALVARDORICKETT_ANNER_ORLANDO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BERKEY_STEVEN_DOUGLAS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BERNARD_LUKE_JULIAN.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BROWN_JARROD_STEVEN.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_BROWN_MARQUENTIS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_CHEN_BO_N.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_CINAMELLA_DOMINICK_ANTHONY.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_DAVIS_ELTON_JEROME.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_DELAWDER_ASHLEY_NICOLE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_DEMARIA_NICOLA.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_FLEURIMAN_TRAVON_MARLLO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_FRENK_TIFFANY_SHURIE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_GENTILUS_STEPHANIE_DIMITRI.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainingData/Orange/2025-03-19/ORANGE_GUANTI_ANGELA_ESTHER.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/downloadDataset_JEFFERSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_JEFFERSON.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/downloadDataset_Midland.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_Midland.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/downloadRecent_OrangeCounty.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadRecent_OrangeCounty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/testModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" beforeDir="false" afterPath="$PROJECT_DIR$/downloadDataset_OrangeCounty.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
