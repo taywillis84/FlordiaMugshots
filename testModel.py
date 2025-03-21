@@ -43,6 +43,8 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
     # Class names based on the model's output (update this to your actual class names)
     class_names = ['Jefferson', 'Midlands', 'Orange']
     mismatches = []  # List to store mismatches
+    correct_predictions = 0  # Count correct predictions
+    total_predictions = 0  # Count total predictions
 
     # Loop through all images in the folder and predict
     for img_name in os.listdir(folder_path):
@@ -62,9 +64,10 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
         predicted_class_name = class_names[predicted_class_index]
 
         # Check if the filename contains the predicted county
-        if not any(county.lower() in img_name.lower() for county in class_names if county == predicted_class_name):
+        if any(county.lower() in img_name.lower() for county in class_names if county == predicted_class_name):
+            correct_predictions += 1  # Increment correct prediction count
+        else:
             mismatches.append(f"{img_name} | Predicted: {predicted_class_name}")
-
             # Generate the saliency map for the predicted class
             saliency_map = generate_saliency_map(model, img_array, predicted_class_index)
 
@@ -88,6 +91,8 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
             # Print the result
             print(f"Image: {img_name} | Predicted Class: {predicted_class_name} | Confidence: {confidence * 100:.2f}%")
 
+        total_predictions += 1  # Increment total predictions count
+
     # Output mismatches at the end
     if mismatches:
         print("\nMISMATCHED FILES:")
@@ -95,6 +100,14 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
             print(mismatch)
     else:
         print("\nNo mismatches found.")
+
+    # Report accuracy at the end
+    accuracy = (correct_predictions / total_predictions) * 100 if total_predictions > 0 else 0
+    print(f"\nAccuracy Report:")
+    print(f"Total Predictions: {total_predictions}")
+    print(f"Correct Predictions: {correct_predictions}")
+    print(f"Incorrect Predictions: {total_predictions - correct_predictions}")
+    print(f"Accuracy: {accuracy:.2f}%")
 
 if __name__ == "__main__":
     # Run the test
