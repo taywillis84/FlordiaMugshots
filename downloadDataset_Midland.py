@@ -7,8 +7,8 @@ from datetime import datetime
 
 # Base URL to scrape for Midlands Mugshots links
 date_str = datetime.now().strftime("%Y-%m-%d")
-SOURCE_URL = "https://www.abccolumbia.com/news/mugshots/page/"  # Change this to the actual source
-SAVE_FOLDER = f"trainingData/MIDLANDS"
+SOURCE_URL = "https://www.abccolumbia.com/news/mugshots/"  # Change this to the actual source
+SAVE_FOLDER = f"trainingData/MIDLANDS{date_str}"
 
 # Ensure the save folder exists
 os.makedirs(SAVE_FOLDER, exist_ok=True)
