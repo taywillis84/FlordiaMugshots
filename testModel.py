@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
 
-folder = "FOLDER PATH"
+folder = "trainingData/Orange/2025-03-19"
 
 # Define the fixture to load the model
 @pytest.fixture
@@ -65,28 +65,28 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
         if not any(county.lower() in img_name.lower() for county in class_names if county == predicted_class_name):
             mismatches.append(f"{img_name} | Predicted: {predicted_class_name}")
 
-        # Generate the saliency map for the predicted class
-        saliency_map = generate_saliency_map(model, img_array, predicted_class_index)
+            # Generate the saliency map for the predicted class
+            saliency_map = generate_saliency_map(model, img_array, predicted_class_index)
 
-        # Display the original image and its saliency map
-        plt.figure(figsize=(10, 5))
+            # Display the original image and its saliency map
+            plt.figure(figsize=(10, 5))
 
-        # Plot original image
-        plt.subplot(1, 2, 1)
-        plt.imshow(img)
-        plt.title(f"Original Image: {img_name}")
-        plt.axis('off')
+            # Plot original image
+            plt.subplot(1, 2, 1)
+            plt.imshow(img)
+            plt.title(f"Original Image: {img_name}")
+            plt.axis('off')
 
-        # Plot saliency map
-        plt.subplot(1, 2, 2)
-        plt.imshow(saliency_map[0], cmap='jet')
-        plt.title(f"Saliency Map\nPredicted: {predicted_class_name} ({confidence * 100:.2f}%)")
-        plt.axis('off')
+            # Plot saliency map
+            plt.subplot(1, 2, 2)
+            plt.imshow(saliency_map[0], cmap='jet')
+            plt.title(f"Saliency Map\nPredicted: {predicted_class_name} ({confidence * 100:.2f}%)")
+            plt.axis('off')
 
-        plt.show()
+            plt.show()
 
-        # Print the result
-        print(f"Image: {img_name} | Predicted Class: {predicted_class_name} | Confidence: {confidence * 100:.2f}%")
+            # Print the result
+            print(f"Image: {img_name} | Predicted Class: {predicted_class_name} | Confidence: {confidence * 100:.2f}%")
 
     # Output mismatches at the end
     if mismatches:
