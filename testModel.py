@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
 
-folder = "ENTER FILEPATH"
+folder = "FOLDER PATH"
 
 # Define the fixture to load the model
 @pytest.fixture
