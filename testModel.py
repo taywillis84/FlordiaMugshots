@@ -5,7 +5,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
 
-folder = "trainingData/Orange/2025-03-19"
+folder = "trainingData/MIDLANDS/2025-03-21"
+
 
 # Define the fixture to load the model
 @pytest.fixture
@@ -13,6 +14,7 @@ def model():
     # Load your trained model
     model = tf.keras.models.load_model('mugshot_classifier.h5')
     return model
+
 
 # Function to generate saliency map
 def generate_saliency_map(model, img_array, class_index):
@@ -38,6 +40,7 @@ def generate_saliency_map(model, img_array, class_index):
 
     return saliency.numpy()
 
+
 # Test function to test the model on a folder of images and show the saliency map
 def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
     # Class names based on the model's output (update this to your actual class names)
@@ -50,48 +53,61 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
     for img_name in os.listdir(folder_path):
         img_path = os.path.join(folder_path, img_name)
 
-        # Load and preprocess the image
-        img = image.load_img(img_path, target_size=img_size)
-        img_array = image.img_to_array(img)
-        img_array = np.expand_dims(img_array, axis=0) / 255.0  # Normalize
+        # Skip non-image files based on file extension
+        if not img_name.lower().endswith(('.jpg', '.jpeg', '.png')):
+            print(f"Skipping non-image file: {img_name}")
+            continue
 
-        # Make prediction
-        prediction = model.predict(img_array)
-        predicted_class_index = np.argmax(prediction, axis=1)[0]  # Get the index of the class with the highest probability
-        confidence = prediction[0][predicted_class_index]  # Get the confidence for the predicted class
+        try:
+            # Load and preprocess the image
+            img = image.load_img(img_path, target_size=img_size)
+            img_array = image.img_to_array(img)
+            img_array = np.expand_dims(img_array, axis=0) / 255.0  # Normalize
 
-        # Get the class name
-        predicted_class_name = class_names[predicted_class_index]
+            # Make prediction
+            prediction = model.predict(img_array)
+            predicted_class_index = np.argmax(prediction, axis=1)[
+                0]  # Get the index of the class with the highest probability
+            confidence = prediction[0][predicted_class_index]  # Get the confidence for the predicted class
 
-        # Check if the filename contains the predicted county
-        if any(county.lower() in img_name.lower() for county in class_names if county == predicted_class_name):
-            correct_predictions += 1  # Increment correct prediction count
-        else:
-            mismatches.append(f"{img_name} | Predicted: {predicted_class_name}")
-            # Generate the saliency map for the predicted class
-            saliency_map = generate_saliency_map(model, img_array, predicted_class_index)
+            # Get the class name
+            predicted_class_name = class_names[predicted_class_index]
 
-            # Display the original image and its saliency map
-            plt.figure(figsize=(10, 5))
+            # Check if the filename contains the predicted county
+            if any(county.lower() in img_name.lower() for county in class_names if county == predicted_class_name):
+                correct_predictions += 1  # Increment correct prediction count
+            else:
+                mismatches.append(f"{img_name} | Predicted: {predicted_class_name}")
+                # Generate the saliency map for the predicted class
+                saliency_map = generate_saliency_map(model, img_array, predicted_class_index)
 
-            # Plot original image
-            plt.subplot(1, 2, 1)
-            plt.imshow(img)
-            plt.title(f"Original Image: {img_name}")
-            plt.axis('off')
+                # Display the original image and its saliency map
+                plt.figure(figsize=(10, 5))
 
-            # Plot saliency map
-            plt.subplot(1, 2, 2)
-            plt.imshow(saliency_map[0], cmap='jet')
-            plt.title(f"Saliency Map\nPredicted: {predicted_class_name} ({confidence * 100:.2f}%)")
-            plt.axis('off')
+                # Plot original image
+                plt.subplot(1, 2, 1)
+                plt.imshow(img)
+                plt.title(f"Original Image: {img_name}")
+                plt.axis('off')
 
-            plt.show()
+                # Plot saliency map
+                plt.subplot(1, 2, 2)
+                plt.imshow(saliency_map[0], cmap='jet')
+                plt.title(f"Saliency Map\nPredicted: {predicted_class_name} ({confidence * 100:.2f}%)")
+                plt.axis('off')
 
-            # Print the result
-            print(f"Image: {img_name} | Predicted Class: {predicted_class_name} | Confidence: {confidence * 100:.2f}%")
+                plt.show()
 
-        total_predictions += 1  # Increment total predictions count
+                # Print the result
+                print(
+                    f"Image: {img_name} | Predicted Class: {predicted_class_name} | Confidence: {confidence * 100:.2f}%")
+
+            total_predictions += 1  # Increment total predictions count
+
+        except Exception as e:
+            # Handle image loading errors (e.g., corrupted or unsupported image formats)
+            print(f"Error loading image {img_name}: {e}")
+            continue
 
     # Output mismatches at the end
     if mismatches:
@@ -108,6 +124,7 @@ def test_model_on_folder(model, folder_path=folder, img_size=(224, 224)):
     print(f"Correct Predictions: {correct_predictions}")
     print(f"Incorrect Predictions: {total_predictions - correct_predictions}")
     print(f"Accuracy: {accuracy:.2f}%")
+
 
 if __name__ == "__main__":
     # Run the test
