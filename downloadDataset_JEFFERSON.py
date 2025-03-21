@@ -15,16 +15,16 @@ base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Page='
 photo_base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000/Inmate/Photo/'
 
 # Folder to save the images
-save_folder = f'trainingData/JEFFERSON'
+save_folder = f'trainingData/newJEFFERSON'
 os.makedirs(save_folder, exist_ok=True)
 
-# Log file to track downloaded images
-log_file = os.path.join(save_folder, 'downloaded_images.txt')
+# Manifest file to track downloaded images with details
+manifest_file = os.path.join(save_folder, 'manifest.json')
 
-# Load previously downloaded images from log file
-if os.path.exists(log_file):
-    with open(log_file, 'r') as f:
-        downloaded_images = set(f.read().splitlines())
+# Load previously downloaded images from the manifest file
+if os.path.exists(manifest_file):
+    with open(manifest_file, 'r') as f:
+        downloaded_images = {entry['img_number'] for entry in json.load(f)}
 else:
     downloaded_images = set()
 
@@ -69,11 +69,20 @@ for page_num in range(1, 30):
             except Exception as e:
                 print(f"Failed to download {img_url}: {e}")
 
-# Update log file with newly downloaded images
+# Update manifest file with newly downloaded images
 if new_files_downloaded > 0:
-    with open(log_file, 'a') as f:
-        for img_number in downloaded_images:
-            f.write(img_number + '\n')
+    import json
+    manifest_data = []
+    for img_number in downloaded_images:
+        manifest_data.append({
+            'img_number': img_number,
+            'file_name': f"JEFFERSON_{img_number}.png",
+            'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        })
+
+    # Write to manifest JSON file
+    with open(manifest_file, 'w') as f:
+        json.dump(manifest_data, f, indent=4)
 
 # Stop timer and calculate total execution time
 end_time = time.time()

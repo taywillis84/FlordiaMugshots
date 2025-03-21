@@ -4,14 +4,25 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import time
 from datetime import datetime
+import json
 
 # Base URL to scrape for Midlands Mugshots links
 date_str = datetime.now().strftime("%Y-%m-%d")
 SOURCE_URL = "https://www.abccolumbia.com/news/mugshots/"  # Change this to the actual source
-SAVE_FOLDER = f"trainingData/MIDLANDS{date_str}"
+SAVE_FOLDER = f"trainingData/MIDLANDS/{date_str}"
 
 # Ensure the save folder exists
 os.makedirs(SAVE_FOLDER, exist_ok=True)
+
+# Manifest file to track downloaded images
+manifest_file = os.path.join(SAVE_FOLDER, 'manifest.json')
+
+# Load previously downloaded images from the manifest file
+if os.path.exists(manifest_file):
+    with open(manifest_file, 'r') as f:
+        downloaded_images = {entry['img_name'] for entry in json.load(f)}
+else:
+    downloaded_images = set()
 
 
 def get_mugshot_links(source_url):
@@ -52,13 +63,20 @@ def download_jpgs_from_url(page_url):
 
 def download_image(img_url):
     """Download an image and save it to the folder."""
-    img_name = os.path.join(SAVE_FOLDER, f"MIDLANDS_{os.path.basename(img_url)}")  # Prepend "Midlands_"
+    img_name = f"MIDLANDS_{os.path.basename(img_url)}"  # Prepend "Midlands_"
+    img_path = os.path.join(SAVE_FOLDER, img_name)
+
+    # Skip if the image has already been downloaded
+    if img_name in downloaded_images:
+        print(f"Skipping {img_name}. Already downloaded.")
+        return
 
     try:
         img_data = requests.get(img_url).content
-        with open(img_name, "wb") as img_file:
+        with open(img_path, "wb") as img_file:
             img_file.write(img_data)
         print(f"Downloaded: {img_name}")
+        downloaded_images.add(img_name)  # Add to set to track downloaded images
     except Exception as e:
         print(f"Failed to download {img_url}: {e}")
 
@@ -67,3 +85,19 @@ def download_image(img_url):
 mugshot_links = get_mugshot_links(SOURCE_URL)
 for link in mugshot_links:
     download_jpgs_from_url(link)
+
+# Update the manifest file with newly downloaded images
+if downloaded_images:
+    manifest_data = []
+    for img_name in downloaded_images:
+        manifest_data.append({
+            'img_name': img_name,
+            'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        })
+
+    # Write to manifest JSON file
+    with open(manifest_file, 'w') as f:
+        json.dump(manifest_data, f, indent=4)
+
+# Report the total number of new files downloaded
+print(f"Total files downloaded: {len(downloaded_images)}")
