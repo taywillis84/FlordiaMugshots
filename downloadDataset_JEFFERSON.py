@@ -11,7 +11,7 @@ from datetime import datetime
 start_time = time.time()
 date_str = datetime.now().strftime("%Y-%m-%d")
 # Base URLs
-base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Page='
+base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Name=&SubjectNumber=&BookingNumber=&BookingFromDate=03%2F22%2F2025&BookingToDate=&Facility='
 photo_base_url = 'https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000/Inmate/Photo/'
 
 # Folder to save the images

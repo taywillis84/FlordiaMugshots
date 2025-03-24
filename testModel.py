@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
 
-folder = "trainingData/MIDLANDS/2025-03-21"
+folder = "newImages"
 
 
 # Define the fixture to load the model
