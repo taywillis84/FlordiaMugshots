@@ -2,9 +2,16 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import re
+from datetime import datetime, timedelta
+
+# Get yesterday's date
+yesterday = datetime.now() - timedelta(days=1)
+
+# Format the date as MM%2FDD%2FYYYY
+formatted_date = yesterday.strftime("%m%%2F%d%%2F%Y")
 
 # URL of the inmate inquiry page
-url = "https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Name=&SubjectNumber=&BookingNumber=&BookingFromDate=03%2F22%2F2025&BookingToDate=&Facility="
+url = f"https://sheriff.jccal.org/NewWorld.InmateInquiry/AL0010000?Name=&SubjectNumber=&BookingNumber=&BookingFromDate={formatted_date}&BookingToDate=&Facility="
 
 # Headers to mimic a browser visit
 headers = {
